@@ -1,0 +1,151 @@
+\documentclass[11pt]{report}
+
+% USE WITH \newgeometry
+\usepackage[paper=a4paper, top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+\usepackage[font=scriptsize]{caption}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{color}
+\usepackage[export]{adjustbox}
+% \usepackage[font=small,labelfont=bf]{caption}
+
+
+%% SETTINGS %%
+
+% Image base path
+\graphicspath{{img/}}
+
+% Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{8} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{8}  % for normal
+
+% Necessary for italian documents
+\frenchspacing
+
+% Line height
+\linespread{1.3}
+% Table of content deep
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+
+% Link configuration
+\hypersetup{
+    pdfpagemode={UseOutlines},
+    bookmarksopen,
+    pdfstartview={FitH},
+    colorlinks,
+    linkcolor={black},
+    citecolor={black},
+    urlcolor={black}
+}
+
+% pdf infos
+\pdfinfo{
+    /Title    Thesis
+    /Author   Your name
+    /Subject  Triennial Thesis
+    /Keywords Thesis, University, Triennial Thesis, DISIM, L'Aquila
+}
+
+% CUSTOM COMMANDS
+
+% Python code style
+\newcommand\pythonstyle{\lstset{
+    language=Python,
+    basicstyle=\ttm,
+    otherkeywords={self, def},
+    keywordstyle=\ttb\color{deepblue},
+    emph={MyClass,__init__},
+    emphstyle=\ttb\color{deepred},
+    commentstyle=\color{deepgreen},
+    stringstyle=\color{deepgreen},
+    frame=lines,
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\footnotesize,
+}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+    \vspace{0.5cm}
+    \pythonstyle
+    \lstinputlisting[#1]{#2}
+    \vspace{0.5cm}
+}}
+
+
+% Java code style
+\newcommand\javastyle{\lstset{
+    language=Java,
+    basicstyle=\ttm,
+    otherkeywords={self, def},
+    keywordstyle=\ttb\color{deepblue},
+    emph={Class},
+    emphstyle=\ttb\color{deepred},
+    commentstyle=\color{deepgreen},
+    stringstyle=\color{deepgreen},
+    frame=lines,
+    breaklines=true,
+    breakatwhitespace=true,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\footnotesize,
+}}  
+
+% Java for inline
+\newcommand\javainline[1]{{\javastyle\lstinline!#1!}}
+
+% Java for external files
+\newcommand\javaexternal[2][]{{
+    \vspace{0.5cm}
+    \javastyle
+    \lstinputlisting[#1]{#2}
+    \vspace{0.5cm}
+}}
+
+% Create a custom paragraph with newline at the end
+\newcommand{\myparagraph}[1]{\paragraph*{\normalfont#1}\mbox{}\\}
+
+
+%% BEGIN DOCUMENT %%
+
+\begin{document}
+
+    % Frontispiece
+    \input{frontispiece}
+    %\clearpage\null\newpage
+    \input{chapters/dedication}
+    %\clearpage\null\newpage
+    % Index
+    \tableofcontents
+    %\newpage
+    % Left alignment
+    \begin{flushleft}
+        % Chapters
+        \input{chapters/summary}
+        \input{chapters/chapter1}
+        \input{chapters/chapter2}
+        \input{chapters/conclusion}
+        \input{chapters/thanks.tex}
+    \end{flushleft}
+    % References
+    \bibliographystyle{plain}
+    \bibliography{references.bib}
+
+\end{document}
