@@ -13,4 +13,4 @@ This template is made for UnivAQ's students. Anyway, if you're from another univ
 https://ggle.io/3GfE
 
 ## Note
-I've not much time to dedicate to this, feel free to contribute. :muscle:
+I've no much time to dedicate to this, feel free to contribute. :muscle:
