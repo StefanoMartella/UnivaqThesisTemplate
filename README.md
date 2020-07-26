@@ -9,4 +9,8 @@ This template is made for UnivAQ's students. Anyway, if you're from another univ
 - Import the .zip on https://it.overleaf.com
 - Write your thesis :grin:
 
+## Genereated pdf example
+https://ggle.io/3GfE
+
+## Note
 I've not much time to dedicate to this, feel free to contribute. :muscle:
